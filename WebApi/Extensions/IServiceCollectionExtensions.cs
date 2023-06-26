@@ -2,7 +2,12 @@
 
 using LoggerService;
 
+using Microsoft.EntityFrameworkCore;
+
 using Repository;
+
+using Service.Contracts;
+using Service.Services;
 
 namespace WebApi.Extensions
 {
@@ -26,11 +31,22 @@ namespace WebApi.Extensions
         {
             services.AddScoped<IRepositoryManager, RepositoryManager>();
         }
-        public static void AddWebApi(this IServiceCollection services)
+        private static void ConfigureServiceManager(this IServiceCollection services)
+        {
+            services.AddScoped<IServiceManager, ServiceManager>();
+        }
+        private static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<RepositoryContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+        }
+        public static void AddWebApi(this IServiceCollection services, IConfiguration configuration)
         {
             services.ConfigureCors();
             services.ConfigureLoggerService();
             services.ConfigureRepositoryManager();
+            services.ConfigureServiceManager();
+            services.ConfigureSqlContext(configuration);
         }
     }
 }
