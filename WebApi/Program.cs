@@ -1,17 +1,17 @@
-using WebApi;
+using WebApi.Extensions;
 
 var builder = WebApplication.CreateSlimBuilder(args);
+{
+    builder.Services.AddWebApi();
+
+}
+
 
 var app = builder.Build();
+{
 
-var sampleTodos = TodoGenerator.GenerateTodos().ToArray();
+    app.UseCors("CorsPolicy");
+    app.Run();
 
-var todosApi = app.MapGroup("/todos");
-todosApi.MapGet("/", () => sampleTodos);
-todosApi.MapGet("/{id}", (int id) =>
-    sampleTodos.FirstOrDefault(a => a.Id == id) is { } todo
-        ? Results.Ok(todo)
-        : Results.NotFound());
-
-app.Run();
+}
 
