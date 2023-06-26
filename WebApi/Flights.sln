@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.33808.371
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi.csproj", "{D61CB508-F61B-4D4E-8CF0-A0C2A606F849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi.csproj", "{D61CB508-F61B-4D4E-8CF0-A0C2A606F849}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "..\Contracts\Contracts.csproj", "{7D063742-1043-48BB-AE29-82BC873F0DA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "..\Contracts\Contracts.csproj", "{7D063742-1043-48BB-AE29-82BC873F0DA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "..\LoggerService\LoggerService.csproj", "{07DD5541-6CFB-4049-A8E6-EEA2FF7B9BBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "..\LoggerService\LoggerService.csproj", "{07DD5541-6CFB-4049-A8E6-EEA2FF7B9BBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "..\Entities\Entities.csproj", "{3427FE2A-BFF9-45E9-8EB5-BE9460605B59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "..\Repository\Repository.csproj", "{22D328F6-1925-4B4F-AFB3-E476DCBD2665}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{07DD5541-6CFB-4049-A8E6-EEA2FF7B9BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07DD5541-6CFB-4049-A8E6-EEA2FF7B9BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07DD5541-6CFB-4049-A8E6-EEA2FF7B9BBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3427FE2A-BFF9-45E9-8EB5-BE9460605B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3427FE2A-BFF9-45E9-8EB5-BE9460605B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3427FE2A-BFF9-45E9-8EB5-BE9460605B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3427FE2A-BFF9-45E9-8EB5-BE9460605B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22D328F6-1925-4B4F-AFB3-E476DCBD2665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D328F6-1925-4B4F-AFB3-E476DCBD2665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22D328F6-1925-4B4F-AFB3-E476DCBD2665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22D328F6-1925-4B4F-AFB3-E476DCBD2665}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
