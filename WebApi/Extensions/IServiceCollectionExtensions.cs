@@ -2,6 +2,8 @@
 
 using LoggerService;
 
+using Repository;
+
 namespace WebApi.Extensions
 {
     public static class IServiceCollectionExtensions
@@ -20,10 +22,15 @@ namespace WebApi.Extensions
         {
             services.AddSingleton<ILoggerManager, LoggerManager>();
         }
+        private static void ConfigureRepositoryManager(this IServiceCollection services)
+        {
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
+        }
         public static void AddWebApi(this IServiceCollection services)
         {
             services.ConfigureCors();
             services.ConfigureLoggerService();
+            services.ConfigureRepositoryManager();
         }
     }
 }
