@@ -30,5 +30,10 @@ namespace Service.Services
                 throw;
             }
         }
+
+        public Flight GetFlightBy(int id, bool trackchanges)
+        {
+            return repository.Flight.GetFlightById(id, trackchanges);
+        }
     }
 }

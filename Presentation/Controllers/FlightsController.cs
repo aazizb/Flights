@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Models;
+
+using Microsoft.AspNetCore.Mvc;
 
 using Service.Contracts;
 
@@ -27,6 +29,12 @@ namespace Presentation.Controllers
 
                 return StatusCode(500, ex.Message);
             }
+        }
+        [HttpGet("{id:int}")]
+        public IActionResult Get(int id)
+        {
+            Flight flight = service.FlightService.GetFlightBy(id, false);
+            return Ok(flight);
         }
     }
 }
