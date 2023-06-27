@@ -11,7 +11,7 @@ namespace Repository
             this.context = context;
 
             flightRepository = new Lazy<IFlightRepository>(() => new
-            FlightRepository(context));
+                FlightRepository(context));
 
         }
         public IFlightRepository Flight => flightRepository.Value;

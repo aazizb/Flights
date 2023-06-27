@@ -30,5 +30,10 @@ namespace Repository
         {
             return FindAll(trackchanges).OrderBy(o => o.Name).ToList();
         }
+
+        public void UpdateFlight(Flight flight)
+        {
+            Update(flight);
+        }
     }
 }

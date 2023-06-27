@@ -53,5 +53,15 @@ namespace Service.Services
         {
             return repository.Flight.GetFlightById(id, trackchanges);
         }
+
+        public void UpdateFlight(int id, Flight flight)
+        {
+            if (flight.Id != id)
+            {
+                logger.LogError($"Flight Management: {nameof(UpdateFlight)} service method, flight {id} not found");
+            }
+            repository.Flight.UpdateFlight(flight);
+            repository.save();
+        }
     }
 }

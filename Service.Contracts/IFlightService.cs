@@ -8,5 +8,6 @@ namespace Service.Contracts
         Flight GetFlightBy(int id, bool trackchanges);
         Flight CreateFlight(Flight flight);
         void DeleteFlight(int id, bool trackchanges);
+        void UpdateFlight(int id, Flight flight);
     }
 }

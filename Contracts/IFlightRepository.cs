@@ -8,5 +8,6 @@ namespace Contracts
         Flight GetFlightById(int id, bool trackchanges);
         void CreateFlight(Flight flight);
         void DeleteFlight(Flight flight);
+        void UpdateFlight(Flight flight);
     }
 }
