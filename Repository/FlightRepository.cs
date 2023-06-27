@@ -10,6 +10,11 @@ namespace Repository
         {
         }
 
+        public void CreateFlight(Flight flight)
+        {
+            Create(flight);
+        }
+
         public Flight GetFlightById(int id, bool trackchanges)
         {
             return FindBy(o => o.Id.Equals(id), trackchanges)

@@ -30,11 +30,21 @@ namespace Presentation.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-        [HttpGet("{id:int}")]
-        public IActionResult Get(int id)
+        [HttpGet("{id:int}", Name = "GetBy")]
+        public IActionResult GetBy(int id)
         {
             Flight flight = service.FlightService.GetFlightBy(id, false);
             return Ok(flight);
+        }
+        [HttpPost]
+        public IActionResult Create([FromBody] Flight flight)
+        {
+            if (flight == null)
+            {
+                return BadRequest("Object is null");
+            }
+            var entity = service.FlightService.CreateFlight(flight);
+            return CreatedAtRoute("GetBy", new { id = entity.Id }, entity);
         }
     }
 }

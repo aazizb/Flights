@@ -6,5 +6,6 @@ namespace Service.Contracts
     {
         IEnumerable<Flight> GetAll(bool trackchanges);
         Flight GetFlightBy(int id, bool trackchanges);
+        Flight CreateFlight(Flight flight);
     }
 }

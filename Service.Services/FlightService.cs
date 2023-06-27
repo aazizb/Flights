@@ -17,6 +17,13 @@ namespace Service.Services
             this.logger = logger;
         }
 
+        public Flight CreateFlight(Flight flight)
+        {
+            repository.Flight.CreateFlight(flight);
+            repository.save();
+            return flight;
+        }
+
         public IEnumerable<Flight> GetAll(bool trackchanges)
         {
             try
