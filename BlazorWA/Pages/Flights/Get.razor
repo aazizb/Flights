@@ -1,0 +1,53 @@
+﻿@page "/Get"
+<link href="/validation.css" rel="stylesheet" />
+
+<h1 class="bg-info text-white">Get Flight by Id</h1>
+
+<div class="form-group">
+    <label>Id</label>
+    <input class="form-control" type="text" @bind="Id" />
+</div>
+<div class="form-group">
+    <button class="btn btn-primary" @onclick="GetFlight">Click</button>
+</div>
+
+@if (flight != null)
+{
+    <h3 class="text-warning p-2">Flight</h3>
+    <table class="table table-sm table-striped table-bordered m-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Departure</th>
+                <th>Destination</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@flight.Id</td>
+                <td>@flight.Name</td>
+                <td>@flight.Departure</td>
+                <td>@flight.Destination</td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@code {
+    public int Id { get; set; }
+    public Flight flight;
+
+    public async Task GetFlight()
+    {
+        flight = new();
+        using (var httpClient = new HttpClient())
+        {
+            using (var response = await httpClient.GetAsync("http://localhost:5130/api/flights/" + Id))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                flight = JsonConvert.DeserializeObject<Flight>(apiResponse);
+            }
+        }
+    }
+}
