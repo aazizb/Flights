@@ -21,7 +21,7 @@ namespace WebApi.Extensions
                     builder.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader());
-            });
+            });//"https://localhost:7065/Read")
         }
         private static void ConfigureLoggerService(this IServiceCollection services)
         {
