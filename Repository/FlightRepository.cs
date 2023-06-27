@@ -9,5 +9,10 @@ namespace Repository
         public FlightRepository(RepositoryContext context) : base(context)
         {
         }
+
+        public IEnumerable<Flight> GetFlights(bool trackchanges)
+        {
+            return FindAll(trackchanges).OrderBy(o => o.Name).ToList();
+        }
     }
 }

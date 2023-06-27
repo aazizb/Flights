@@ -1,7 +1,9 @@
-﻿namespace Service.Contracts
+﻿using Entities.Models;
+
+namespace Service.Contracts
 {
     public interface IFlightService
     {
-
+        IEnumerable<Flight> GetAll(bool trackchanges);
     }
 }

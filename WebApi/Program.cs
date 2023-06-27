@@ -15,7 +15,9 @@ var builder = WebApplication.CreateSlimBuilder(args);
 
 var app = builder.Build();
 {
+
     app.UseCors("CorsPolicy");
+    app.MapControllers();
     app.Run();
 
 }

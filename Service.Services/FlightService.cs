@@ -1,5 +1,7 @@
 ﻿using Contracts;
 
+using Entities.Models;
+
 using Service.Contracts;
 
 namespace Service.Services
@@ -15,5 +17,18 @@ namespace Service.Services
             this.logger = logger;
         }
 
+        public IEnumerable<Flight> GetAll(bool trackchanges)
+        {
+            try
+            {
+                return repository.Flight.GetFlights(trackchanges);
+            }
+            catch (Exception ex)
+            {
+
+                logger.LogError($"Flight Management: {nameof(GetAll)} service method {ex}");
+                throw;
+            }
+        }
     }
 }
