@@ -18,10 +18,10 @@ namespace WebApi.Extensions
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy", builder =>
-                    builder.AllowAnyOrigin()
+                    builder.WithOrigins("https://localhost:7065", "http://localhost:5168")
                     .AllowAnyMethod()
                     .AllowAnyHeader());
-            });//"https://localhost:7065/Read")
+            });
         }
         private static void ConfigureLoggerService(this IServiceCollection services)
         {

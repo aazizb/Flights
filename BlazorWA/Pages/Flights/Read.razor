@@ -1,0 +1,52 @@
+﻿@page "/Read"
+
+<h1 class="bg-info text-white">Read Flight</h1>
+
+<NavLink class="btn btn-primary" href="Create">Create Flight</NavLink>
+<NavLink class="btn btn-secondary" href="Get">Get Flight</NavLink>
+
+<table class="table table-sm table-striped table-bordered m-2">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Departure</th>
+            <th>Destination</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Flight r in Flights)
+        {
+            <tr>
+                <td>@r.Id</td>
+                <td>@r.Name</td>
+                <td>@r.Departure</td>
+                <td>@r.Destination</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    [Inject]
+    public NavigationManager NV { get; set; }
+
+    public IEnumerable<Flight> Flights { get; set; } = Enumerable.Empty<Flight>();
+
+    protected async override Task OnInitializedAsync()
+    {
+        await CallAPI();
+    }
+
+    async Task CallAPI()
+    {
+        using (var httpClient = new HttpClient())
+        {
+            using (var response = await httpClient.GetAsync("http://localhost:5130/api/flights"))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+                Flights = JsonConvert.DeserializeObject<List<Flight>>(apiResponse);
+            }
+        }
+    }
+}

@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Services", "..\Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Presentation", "..\Presentation\Presentation.csproj", "{B7B722C6-6019-4C3B-BE94-B241DA38CB81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWA", "..\BlazorWA\BlazorWA.csproj", "{E8ABE812-3DF3-4E75-A131-6E0059C10075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWA", "..\BlazorWA\BlazorWA.csproj", "{E8ABE812-3DF3-4E75-A131-6E0059C10075}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
