@@ -24,6 +24,17 @@ namespace Service.Services
             return flight;
         }
 
+        public void DeleteFlight(int id, bool trackchanges)
+        {
+            var entity = repository.Flight.GetFlightById(id, trackchanges);
+            if (entity is null)
+            {
+                throw new Exception($"Flight: {id} not found");
+            }
+            repository.Flight.DeleteFlight(entity);
+            repository.save();
+        }
+
         public IEnumerable<Flight> GetAll(bool trackchanges)
         {
             try

@@ -46,5 +46,11 @@ namespace Presentation.Controllers
             var entity = service.FlightService.CreateFlight(flight);
             return CreatedAtRoute("GetBy", new { id = entity.Id }, entity);
         }
+        [HttpDelete("{id:int}")]
+        public IActionResult Delete(int id)
+        {
+            service.FlightService.DeleteFlight(id, false);
+            return NoContent();
+        }
     }
 }
