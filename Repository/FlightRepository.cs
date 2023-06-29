@@ -28,7 +28,7 @@ namespace Repository
 
         public IEnumerable<Flight> GetFlights(bool trackchanges)
         {
-            return FindAll(trackchanges).OrderBy(o => o.Name).ToList();
+            return FindAll(trackchanges).OrderBy(o => o.Id).ToList();
         }
 
         public void UpdateFlight(Flight flight)

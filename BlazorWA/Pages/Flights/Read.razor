@@ -12,6 +12,8 @@
             <th>Name</th>
             <th>Departure</th>
             <th>Destination</th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +24,16 @@
                 <td>@r.Name</td>
                 <td>@r.Departure</td>
                 <td>@r.Destination</td>
+                <td>
+                    <a href="Update/@r.Id">
+                        <img src="/icon/icon-192.png" />
+                    </a>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-danger" @onclick="@(() => Delete(r))">
+                        <img src="/icon/close.png" />
+                    </button>
+                </td>
             </tr>
         }
     </tbody>
@@ -48,5 +60,16 @@
                 Flights = JsonConvert.DeserializeObject<List<Flight>>(apiResponse);
             }
         }
+    }
+    public async Task Delete(Flight r)
+    {
+        using (var httpClient = new HttpClient())
+        {
+            using (var response = await httpClient.DeleteAsync("http://localhost:5130/api/flights/" + r.Id))
+            {
+                string apiResponse = await response.Content.ReadAsStringAsync();
+            }
+        }
+        await CallAPI();
     }
 }

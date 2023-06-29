@@ -4,8 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ServerGarbageCollection>false</ServerGarbageCollection>
-    <InvariantGlobalization>false</InvariantGlobalization>
+    <!--<ServerGarbageCollection>false</ServerGarbageCollection>
+    <InvariantGlobalization>false</InvariantGlobalization>-->
   </PropertyGroup>
 
   <ItemGroup>

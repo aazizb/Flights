@@ -67,9 +67,13 @@
             {
                 string apiResponse = await response.Content.ReadAsStringAsync();
                 newFlight = JsonConvert.DeserializeObject<Flight>(apiResponse);
+                if (response.IsSuccessStatusCode)
+                {
+                    FormSubmitMessage = "Flight Created";
+                    
+                }
             }
         }
-        FormSubmitMessage = "Flight Created";
     }
 
     public void HandleInvalidSubmit() => FormSubmitMessage = "Invalid Flight";
