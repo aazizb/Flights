@@ -20,7 +20,7 @@ namespace Service.Services
         public Flight CreateFlight(Flight flight)
         {
             repository.Flight.CreateFlight(flight);
-            repository.save();
+            repository.Save();
             return flight;
         }
 
@@ -32,7 +32,7 @@ namespace Service.Services
                 throw new Exception($"Flight: {id} not found");
             }
             repository.Flight.DeleteFlight(entity);
-            repository.save();
+            repository.Save();
         }
 
         public IEnumerable<Flight> GetAll(bool trackchanges)
@@ -61,7 +61,7 @@ namespace Service.Services
                 logger.LogError($"Flight Management: {nameof(UpdateFlight)} service method, flight {id} not found");
             }
             repository.Flight.UpdateFlight(flight);
-            repository.save();
+            repository.Save();
         }
     }
 }

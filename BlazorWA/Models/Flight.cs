@@ -7,5 +7,9 @@
         public string? Departure { get; set; }
         public string? Destination { get; set; }
         public int Distance { get; set; }
+
+        public Airport? Airport { get; set; }
+        public int AirportId { get; set; }
+
     }
 }

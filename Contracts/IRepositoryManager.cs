@@ -3,6 +3,6 @@
     public interface IRepositoryManager
     {
         IFlightRepository Flight { get; }
-        void save();
+        void Save();
     }
 }

@@ -16,8 +16,15 @@
     <div class="form-group">
         <label>Departure</label>
         <ValidationMessage For="@(() => flight.Departure)" />
-        <InputText class="form-control" @bind-Value="flight.Departure" />
+            <InputSelect @bind-Value="flight.Id" class="form-select">
+                @foreach(var airport in flight.Airport)
+            </InputSelect>
     </div>
+@*     <div class="form-group">
+        <label>Departure</label>
+        <ValidationMessage For="@(() => flight.Departure)" />
+        <InputText class="form-control" @bind-Value="flight.Departure" />
+    </div> *@
     <div class="form-group">
         <label>Destination</label>
         <ValidationMessage For="@(() => flight.Destination)" />

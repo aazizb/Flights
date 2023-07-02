@@ -16,7 +16,7 @@ namespace Repository
         }
         public IFlightRepository Flight => flightRepository.Value;
 
-        public void save()
+        public void Save()
         {
             context.SaveChanges();
         }
